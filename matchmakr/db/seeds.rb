@@ -29,18 +29,17 @@ def unique_driver
 	{
 	user_id: (rand(4) + 1),
 	vehicle_id: (rand(4) + 1),
-    name: Faker::Hipster.sentence(4)
-    }
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+	}
 end
 
-def create_driver
-	Driver.create!(unique_driver)
-end
 
 def unique_passenger
 	{
 	user_id: (rand(4) + 1),
-    name: Faker::Hipster.sentence(4),
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     age: (rand(20)+18),
     gender: rand(2) == 1 ? "Male" : "Female",
     interests: Faker::Commerce.department
@@ -48,10 +47,11 @@ def unique_passenger
     }
 end
 
+
 def unique_ride
 	{
 		driver_id: (rand(4) + 1),
-		passenger_id: (rand(4) + 1),
+		passenger_id: (rand(20) + 1),
 		date: Faker::Date.between(30.days.ago,Date.today),
 		ride_start_time: Faker::Time.between(DateTime.now - 1, DateTime.now),
 		ride_end_time: Faker::Time.between(DateTime.now + 1, DateTime.now),
@@ -61,11 +61,15 @@ def unique_ride
 	}
 end	
 
-def create_driver
-	Passenger.create!(unique_passenger)
-end
 
 5.times do
+	Driver.create!(unique_driver)
+end
+20.times do
+	Passenger.create!(unique_passenger)	
+end
+
+100.times do
 	Ride.create!(unique_ride)
 end
 

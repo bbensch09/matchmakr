@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160114184540) do
   create_table "drivers", force: :cascade do |t|
     t.string   "first_name", null: false
     t.string   "last_name",  null: false
+    t.integer  "vehicle_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
