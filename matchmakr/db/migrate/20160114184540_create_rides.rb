@@ -7,7 +7,7 @@ class CreateRides < ActiveRecord::Migration
     	t.datetime :ride_end_time
     	t.date :date
     	t.integer :passenger_id
-    	t.interger :driver_id
+    	t.integer :driver_id
       t.timestamps null: false
     end
   end
