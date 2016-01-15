@@ -57,7 +57,6 @@ def unique_ride
 		ride_end_time: Faker::Time.between(DateTime.now + 1, DateTime.now),
 	    pickup_location: "user's home",
     	dropoff_location: "SFO Airport"
-
 	}
 end	
 
