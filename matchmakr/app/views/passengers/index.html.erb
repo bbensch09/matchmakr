@@ -1,1 +1,31 @@
-<h1>All drivers will be listed here</h1>
+<h1>All drivers should be listed here</h1>
+
+  <% @passengers = Passenger.order('id DESC') %>
+  <% @passengers.each do |passenger| %>
+    <div class="main-section col-12">
+      <div class="title-list col-10">
+        <h2> <%= passenger.first_name %>
+        </h2>
+      </div>
+      <div>
+        <h3 class="gridlist-mobile-12 gridlist-desktop-9"><%= passenger.age %></h3>
+        <h3 class="gridlist-mobile-12 gridlist-desktop-9"><%= passenger.gender %></h3>
+      </div>
+
+      <button class="button"> <%= link_to 'View passenger', passenger_path(passenger) %> </button>
+
+      <div>
+        <div class="edit-button">
+          <%= link_to 'Edit', edit_passenger_path(passenger), :class=> "link-b" %></div>
+        <div class="see-comments">
+          <%= link_to 'Read Comments', passenger_path(passenger, anchor:"comments"), :class=>"view-comments" %></div>
+        <div class="delete-button">
+          <%= link_to 'Delete', passenger_path(passenger), :class=> "link-b",
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></div>
+      </div>
+      <br>
+      <hr class="cl-b">
+    </div>
+  <% end %>
+

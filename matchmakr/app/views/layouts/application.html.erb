@@ -37,9 +37,9 @@
                             <span class="icon-bar">___</span>
                             <span class="icon-bar">___</span>
                         </button>
-                        <a class="navbar-brand" href="/index">
+                        <a class="navbar-brand" href="/">
                             <!-- <img src="assets/rm-logo.jpg" alt="RentMasters.co" id="header-logo"/> -->
-                            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQz5I4PhTnZ8rEIr5iyAtkRDh1St9zclk2dRF5lMGnb7fuCjKeWCQ" id="header-logo"/>
+                            <img src="" alt="no-logo"/> Home
                         </a>
                  </div><!--Navbar header End-->
                     <nav class="collapse navbar-collapse navigation" id="bs-example-navbar-collapse-1" role="navigation">
@@ -56,3 +56,46 @@
 </header>
 
 <div class="vertical_space cl-b"> </div>
+
+<%= yield %>
+
+<div class="cl-b">
+      <!-- %= debug(params) if Rails.env.development? %> -->
+</div>
+
+</body>
+
+<!-- Footer Area Start -->
+
+<section id="footer" class="cl-b">
+
+    <div class="footer_b">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="footer_bottom">
+                        <p class="text-block"> &copy; Copyright reserved to <span>Match Makr, Inc. </span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="footer_mid pull-right">
+                        <ul class="social-contact list-inline">
+                            <li> <a href="/terms_of_service" class="footer-links">Terms of Service </a></li>
+                            <li> <a href="/privacy_policy" class="footer-links">Privacy Policy </a></li>
+                            <li> <a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li> <a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li> <a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                            <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"> <i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer Area End -->
+   
+</html>

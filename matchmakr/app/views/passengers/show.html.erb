@@ -1,0 +1,14 @@
+<h1 class="profile"><%= @passenger.first_name %> <%= @passenger.last_name %></h1>
+<h3 class="profile"><%= @passenger.age %></h3>
+<h3 class="profile"><%= @passenger.gender %></h3>
+
+
+  <div class="edit-button">
+    <%= link_to 'Edit', edit_passenger_path(@passenger), :class=> "link-b" %>
+  </div>
+
+  <div class="delete-button">
+    <%= link_to 'Delete', passenger_path(@passenger), :class=> "link-b",
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+  </div>

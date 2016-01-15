@@ -10,32 +10,35 @@ class PassengersController < ApplicationController
 	end
 
 	def create
-		@passenger = Passenger.new(params, user_id: current_user.id)
+		@passenger = Passenger.new(passenger_params)
+		#, user_id: current_user.id)
 		puts "New @passenger object is #{@passenger}"
 		if @passenger.save
-			redirect_to @passenger
 			puts "New passenger saved successfully."
+			redirect_to @passenger
 		else
 			render 'new'
 		end
 	end
 
 	def edit
+	    @passenger = Passenger.find(params[:id])
 	end
 
 	def show
-	end
-
-	def show
+	    @passenger = Passenger.find(params[:id])
 	end
 
 	def delete
+		@passenger = Passenger.find(params[:id])
+	  	@apassenger.destroy
+	  	redirect_to passengers_path
 	end
 
-	private
+private
 
-	def params
+	def passenger_params
 		params.require(:passenger).permit(:first_name, :last_name, :age, :gender, :interests)
-	end
+	end	
 
 end
