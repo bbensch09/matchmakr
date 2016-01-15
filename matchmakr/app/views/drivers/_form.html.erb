@@ -1,14 +1,14 @@
-<%= form_for @passenger, multipart:true do |f| %>
+<%= form_for @driver, multipart:true do |f| %>
 
-  <% if @passenger.errors.any? %>
+  <% if @driver.errors.any? %>
     <div id="error_explanation">
       <h2>
         <span class="errors">
-          <%= pluralize(@passenger.errors.count, "error") %>
+          <%= pluralize(@driver.errors.count, "error") %>
         </span> prohibited this article from being saved:
       </h2>
       <ul>
-        <% @passenger.errors.full_messages.each do |msg| %>
+        <% @driver.errors.full_messages.each do |msg| %>
           <li class="errors"><%= msg %></li>
         <% end %>
       </ul>
@@ -29,16 +29,8 @@
     <%= f.text_field :last_name, size:"50x2" %>
 
    <p>
-    <%= f.label :age, "Age", :class=>"edit-label"  %><br>
-    <%= f.text_field :age, size:"50x2" %>
-  </p>
-  <p>
-    <%= f.label :gender, "Gender", :class=>"edit-label"  %><br>
-    <%= f.select :gender, options_for_select([["Male",1],["Female",2]]), size:"50x2" %>
-  </p>
-  <p>
-    <%= f.label :interests, "Interests", :class=>"edit-label"  %><br>
-    <%= f.text_field :interests, size:"200x6" %>
+    <%= f.label :vehicle_id, "Vehicle ID:", :class=>"edit-label"  %><br>
+    <%= f.text_field :vehicle_id, size:"50x2" %>
   </p>
 
   <div>

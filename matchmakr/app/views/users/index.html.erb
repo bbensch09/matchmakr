@@ -1,0 +1,26 @@
+<h1>All users & their emails should be listed here</h1>
+
+  <% @users = User.order('id DESC') %>
+  <% @users.each do |user| %>
+    <div class="main-section col-12">
+      <div class="title-list col-10">
+        <h2> <%= user.email %> </h2>
+      </div>
+      
+      <button class="button"> <%= link_to 'View user', user_path(user) %> </button>
+
+      <div>
+        <div class="edit-button">
+          <%= link_to 'Edit', edit_user_path(user), :class=> "link-b" %></div>
+        <div class="see-comments">
+          <%= link_to 'See past rides', user_path(user, anchor:"rides"), :class=>"view-comments" %></div>
+        <div class="delete-button">
+          <%= link_to 'Delete', user_path(user), :class=> "link-b",
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></div>
+      </div>
+      <br>
+      <hr class="cl-b">
+    </div>
+  <% end %>
+

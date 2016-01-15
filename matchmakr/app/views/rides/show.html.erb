@@ -1,0 +1,15 @@
+      <div>
+        <h3 class="gridlist-mobile-12 gridlist-desktop-9"> Pickup time: <%= @ride.ride_start_time %></h3>
+        <h3 class="gridlist-mobile-12 gridlist-desktop-9"> Pickup Location: <%= @ride.pickup_location %></h3>
+        <h3 class="gridlist-mobile-12 gridlist-desktop-9"> Destination: <%= @ride.dropoff_location %></h3>
+      </div>
+
+  <div class="edit-button">
+    <%= link_to 'Edit', edit_ride_path(@ride), :class=> "link-b" %>
+  </div>
+
+  <div class="delete-button">
+    <%= link_to 'Delete', ride_path(@ride), :class=> "link-b",
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+  </div>

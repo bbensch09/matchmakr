@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :passengers
   resources :drivers
   resources :rides
+  resources :users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

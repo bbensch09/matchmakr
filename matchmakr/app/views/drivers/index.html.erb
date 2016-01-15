@@ -1,0 +1,28 @@
+<h1>All drivers should be listed here</h1>
+
+  <% @drivers = Driver.order('id DESC') %>
+  <% @drivers.each do |driver| %>
+    <div class="main-section col-12">
+      <div class="title-list col-10">
+        <h2> <%= driver.first_name %>
+        <h2> <%= driver.last_name %>        
+        <h2> Vehicle ID: <%= driver.vehicle_id %>        
+        </h2>
+      </div>
+      <button class="button"> <%= link_to 'View driver', driver_path(driver) %> </button>
+
+      <div>
+        <div class="edit-button">
+          <%= link_to 'Edit', edit_driver_path(driver), :class=> "link-b" %></div>
+        <div class="see-comments">
+          <%= link_to 'See past rides', driver_path(driver, anchor:"rides"), :class=>"view-comments" %></div>
+        <div class="delete-button">
+          <%= link_to 'Delete', driver_path(driver), :class=> "link-b",
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></div>
+      </div>
+      <br>
+      <hr class="cl-b">
+    </div>
+  <% end %>
+

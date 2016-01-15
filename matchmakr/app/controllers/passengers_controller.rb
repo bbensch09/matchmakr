@@ -31,7 +31,7 @@ class PassengersController < ApplicationController
 
 	def delete
 		@passenger = Passenger.find(params[:id])
-	  	@apassenger.destroy
+	  	@passenger.destroy
 	  	redirect_to passengers_path
 	end
 

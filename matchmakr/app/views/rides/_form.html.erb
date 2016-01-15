@@ -1,0 +1,45 @@
+<%= form_for @ride, multipart:true do |f| %>
+
+  <% if @ride.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <span class="errors">
+          <%= pluralize(@ride.errors.count, "error") %>
+        </span> prohibited this article from being saved:
+      </h2>
+      <ul>
+        <% @ride.errors.full_messages.each do |msg| %>
+          <li class="errors"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<section class="new-article-form">
+  <div>
+    <%= f.submit 'Request your Free Ride', :class=>"button" %>
+  </div>
+  <p>
+    <%= f.label :date, "Date of Ride", :class=>"edit-label" %><br>
+    <%= select_date Date.today, prefix: :start_date %>
+  </p>
+
+  <p>
+    <%= f.label :ride_start_time, "Pickup Time", :class=>"edit-label"  %><br>
+    <%= f.time_select :ride_start_time, :default => (Time.now + 1.hours) %>
+  </p>
+
+  <p>
+    <%= f.label :pickup_location, "Pickup Location", :class=>"edit-label"  %><br>
+    <%= f.text_field :pickup_location %>
+  </p>
+    <p>
+    <%= f.label :dropoff_location, "Destination", :class=>"edit-label"  %><br>
+    <%= f.text_field :dropoff_location %>
+  </p>
+ 
+  <div>
+    <%= f.submit 'Submit to Sign up', :class=>"button" %>
+  </div>
+</section>
+<% end %>

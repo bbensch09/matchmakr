@@ -1,0 +1,30 @@
+<h1>All Rides should be listed here</h1>
+
+  <% @rides = Ride.order('date DESC') %>
+  <% @rides.each do |ride| %>
+    <div class="main-section col-12">
+      <div class="title-list col-10">
+        <h2> <%= ride.date %>
+        </h2>
+      </div>
+      <div>
+        <h3 class="gridlist-mobile-12 gridlist-desktop-9"> Pickup Time: <%= ride.ride_start_time %></h3>
+        <h3 class="gridlist-mobile-12 gridlist-desktop-9"> Pickup Location: <%= ride.pickup_location %></h3>
+        <h3 class="gridlist-mobile-12 gridlist-desktop-9"> Destination: <%= ride.dropoff_location %></h3>
+      </div>
+
+      <button class="button"> <%= link_to 'View ride', ride_path(ride) %> </button>
+
+      <div>
+        <div class="edit-button">
+          <%= link_to 'Edit', edit_ride_path(ride), :class=> "link-b" %></div>      
+        <div class="delete-button">
+          <%= link_to 'Delete', ride_path(ride), :class=> "link-b",
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></div>
+      </div>
+      <br>
+      <hr class="cl-b">
+    </div>
+  <% end %>
+

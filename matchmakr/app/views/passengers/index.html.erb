@@ -4,7 +4,8 @@
   <% @passengers.each do |passenger| %>
     <div class="main-section col-12">
       <div class="title-list col-10">
-        <h2> <%= passenger.first_name %>
+        <h2> <%= passenger.first_name %><%= passenger.last_name %>
+        <h2>ID: <%= passenger.id %>
         </h2>
       </div>
       <div>
@@ -18,7 +19,7 @@
         <div class="edit-button">
           <%= link_to 'Edit', edit_passenger_path(passenger), :class=> "link-b" %></div>
         <div class="see-comments">
-          <%= link_to 'Read Comments', passenger_path(passenger, anchor:"comments"), :class=>"view-comments" %></div>
+          <%= link_to 'See past rides', passenger_path(passenger, anchor:"rides"), :class=>"view-comments" %></div>
         <div class="delete-button">
           <%= link_to 'Delete', passenger_path(passenger), :class=> "link-b",
               method: :delete,
